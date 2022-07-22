@@ -320,9 +320,7 @@ class PaneItem extends NavigationPaneItem {
         return Semantics(
           label: titleText.isEmpty ? null : titleText,
           selected: selected,
-          child: AnimatedContainer(
-            duration: theme.animationDuration ?? Duration.zero,
-            curve: theme.animationCurve ?? standardCurve,
+          child: Container(
             margin: const EdgeInsets.only(right: 6.0, left: 6.0),
             decoration: BoxDecoration(
               color: () {
@@ -388,14 +386,17 @@ class PaneItem extends NavigationPaneItem {
       padding: const EdgeInsets.only(bottom: 4.0),
       child: () {
         // If there is an indicator and the item is an effective item
-        if (maybeBody?.pane?.indicator != null && index != -1) {
+        if (maybeBody?.pane?.indicator != null &&
+            index != null &&
+            !index.isNegative) {
           return Stack(children: [
             button,
             Positioned.fill(
               child: InheritedNavigationView.merge(
                 currentItemIndex: index,
+                currentItemSelected: selected,
                 child: KeyedSubtree(
-                  key: index != null ? key : null,
+                  key: key,
                   child: maybeBody!.pane!.indicator!,
                 ),
               ),

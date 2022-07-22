@@ -98,6 +98,27 @@ abstract class FluentLocalizations {
   /// The tooltip for the select all action on the text selection controls
   String get selectAllActionTooltip;
 
+  /// The text used by [TimePicker] for the hour field
+  String get hour;
+
+  /// The text used by [TimePicker] for the minute field
+  String get minute;
+
+  /// The text used by [TimePicker] for the AM field
+  String get am;
+
+  /// The text used by [TimePicker] for the PM field
+  String get pm;
+
+  /// The text used by [DatePicker] for the month field
+  String get month;
+
+  /// The text used by [DatePicker] for the day field
+  String get day;
+
+  /// The text used by [DatePicker] for the year field
+  String get year;
+
   /// The `FluentLocalizations` from the closest [Localizations] instance
   /// that encloses the given context.
   ///
@@ -137,6 +158,7 @@ const List<Locale> defaultSupportedLocales = <Locale>[
   Locale('fr'),
   Locale('hi'),
   Locale('it'),
+  Locale('ja'),
   Locale('ko'),
   Locale('ms'),
   Locale('nl'),
@@ -230,5 +252,5 @@ class _FluentLocalizationsDelegate
   bool shouldReload(_FluentLocalizationsDelegate old) => false;
 
   @override
-  String toString() => 'DefaultMaterialLocalizations.delegate(en_US)';
+  String toString() => 'DefaultFluentLocalizations.delegate(en_US)';
 }

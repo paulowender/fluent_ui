@@ -40,7 +40,6 @@
 ### Content
 
 - [Motivation](#motivation)
-- [Sponsors](#sponsors)
 - [Installation](#installation)
   - [Badge](#badge)
 - [Style](#style)
@@ -95,7 +94,7 @@
   - [Time Picker](#time-picker)
   - [Progress Bar and Progress Ring](#progress-bar-and-progress-ring)
   - [Scrollbar](#scrollbar)
-  - [List Tile](#list-tile)
+  - [ListTile](#listtile)
   - [Info Label](#info-label)
   - [TreeView](#treeview)
     - [Scrollable tree view](#scrollable-tree-view)
@@ -123,14 +122,6 @@ See also:
 - [Material UI for Flutter](https://flutter.dev/docs/development/ui/widgets/material)
 - [Cupertino UI for Flutter](https://flutter.dev/docs/development/ui/widgets/cupertino)
 - [MacOS UI for Flutter](https://github.com/GroovinChip/macos_ui)
-
-## Sponsors
-
-Want to be a sponsor? Become one [here](https://patreon.com/bdlukaa)
-
-These are our really cool sponsors!
-
-<a href="https://github.com/phorcys420"><img src="https://github.com/phorcys420.png" width="50px" alt="phorcys420" /></a>&nbsp;&nbsp;
 
 ## Installation
 
@@ -1258,13 +1249,10 @@ Here's an example of how to create a basic date picker:
 ```dart
 DateTime date = DateTime.now();
 
-SizedBox(
-  width: 295,
-  child: DatePicker(
-    header: 'Pick a date',
-    selected: date,
-    onChanged: (v) => setState(() => date = v),
-  ),
+DatePicker(
+  header: 'Pick a date',
+  selected: date,
+  onChanged: (v) => setState(() => date = v),
 );
 ```
 
@@ -1283,13 +1271,10 @@ Here's an example of how to create a basic time picker:
 ```dart
 DateTime date = DateTime.now();
 
-SizedBox(
-  width: 240,
-  child: TimePicker(
-    header: 'Arrival time',
-    selected: date,
-    onChanged: (v) => setState(() => date = v),
-  ),
+TimePicker(
+  header: 'Arrival time',
+  selected: date,
+  onChanged: (v) => setState(() => date = v),
 ),
 ```
 
@@ -1367,38 +1352,34 @@ Which produces the following:
 
 You can change the `isAlwaysVisible` property to either enable or disable the fade effect. It's disabled by default.
 
-## List Tile
+## ListTile
 
-You can use a `ListTile` in a `ListView`.
+A fluent-styled list tile. Usually used inside a `ListView`. [Learn more](https://docs.microsoft.com/en-us/windows/apps/design/controls/item-templates-listview)
 
-### Example
+Here's an example of how to use a list tile inside a of `ListView`:
 
 ```dart
-final people = {
-  'Mass in B minor': 'Johann Sebastian Bach',
-  'Third Symphony': 'Ludwig van Beethoven',
-  'Serse': 'George Frideric Hendel',
-};
+String selectedContact = '';
+
+const contacts = ['Kendall', 'Collins', ...];
 
 ListView.builder(
-  itemCount: people.length,
+  itemCount: contacts.length,
   itemBuilder: (context, index) {
-    final title = people.keys.elementAt(index);
-    final subtitle = people[title];
-    return ListTile(
+    final contact = contacts[index];
+    return ListTile.selectable(
       leading: CircleAvatar(),
-      title: Text(title),
-      subtitle: Text(subtitle!),
+      title: Text(contact),
+      selected: selectedContact == contact,
+      onSelectionChange: (v) => setState(() => selectedContact = contact),
     );
-  }
-),
+  } 
+)
 ```
 
 The code above produces the following:
 
-![Double Line Example](https://docs.microsoft.com/en-us/windows/uwp/design/controls-and-patterns/images/listitems/doublelineexample.png)
-
-If you want to create a tappable tile, use `TappableListTile` instead.
+![A selected ListTile in a ListView](https://docs.microsoft.com/en-us/windows/apps/design/controls/images/listview-grouped-example-resized-final.png)
 
 ## Info Label
 
@@ -1750,21 +1731,25 @@ The list of equivalents between this library and `flutter/material.dart`
 
 FluentUI widgets currently supports out-of-the-box an wide number of languages, including:
 
-- Arabic
+- Arabic (@dmakwt)
 - English
-- Dutch
-- French
-- German
-- Hindi
-- Italian
-- Korean
-- Malay
-- Polish
-- Portuguese
-- Russian
-- Simplified Chinese
-- Traditional Chinese
-- Spanish
+- Dutch (@h3x4d3c1m4l)
+- French (@WinXaito)
+- German (@larsb24)
+- Hindi (@alexmercerind)
+- Italian (@patricknicolosi)
+- Japanese (@chari8)
+- Korean (@dubh3)
+- Malay (@jonsaw)
+- Persian (@xmine64)
+- Polish (@madik7)
+- Portuguese (@bdlukaa)
+- Russian (@raitonoberu)
+- Simplified Chinese (@zacksleo, @rk0cc)
+- Traditional Chinese (@zacksleo, @rk0cc)
+- Spanish (@henry2man)
+
+If a language is not supported, your app may crash. You can [add support for a new language](#contributing-new-localizations) or use a supported language. [Learn more](https://github.com/bdlukaa/fluent_ui/issues/371)
 
 ## Contribution
 

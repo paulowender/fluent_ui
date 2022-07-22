@@ -289,6 +289,76 @@ class S {
       args: [],
     );
   }
+
+  /// `hour`
+  String get hour {
+    return Intl.message(
+      'hour',
+      name: 'hour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `minute`
+  String get minute {
+    return Intl.message(
+      'minute',
+      name: 'minute',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `AM`
+  String get am {
+    return Intl.message(
+      'AM',
+      name: 'am',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PM`
+  String get pm {
+    return Intl.message(
+      'PM',
+      name: 'pm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `month`
+  String get month {
+    return Intl.message(
+      'month',
+      name: 'month',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `day`
+  String get day {
+    return Intl.message(
+      'day',
+      name: 'day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `year`
+  String get year {
+    return Intl.message(
+      'year',
+      name: 'year',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -304,6 +374,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'hi'),
       Locale.fromSubtags(languageCode: 'it'),
+      Locale.fromSubtags(languageCode: 'ja'),
       Locale.fromSubtags(languageCode: 'ko'),
       Locale.fromSubtags(languageCode: 'ms'),
       Locale.fromSubtags(languageCode: 'nl'),

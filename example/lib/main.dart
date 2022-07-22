@@ -90,8 +90,7 @@ class MyApp extends StatelessWidget {
               textDirection: appTheme.textDirection,
               child: NavigationPaneTheme(
                 data: NavigationPaneThemeData(
-                  backgroundColor: appTheme.windowEffect !=
-                          flutter_acrylic.WindowEffect.disabled
+                  backgroundColor: appTheme.windowEffect != flutter_acrylic.WindowEffect.disabled
                       ? Colors.transparent
                       : null,
                 ),
